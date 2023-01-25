@@ -1,0 +1,44 @@
+/*  JFM1T13_Assignment3:
+
+      Write a Java program to count the number of key-value (size) mappings in a map. 
+      Prompt the user input from the terminal.
+
+      Sample Input: 
+      Enter value:20
+      Enter key:bitLabs
+      Enter another student (y/n)?y
+      Enter value:25
+      Enter key:welcomes
+      Enter another student (y/n)?y
+      Enter value:30 
+      Enter key:you
+      Enter another student (y/n)?n
+
+      Expected Output: The size of the map is 3
+*/
+import java.util.*;
+public class MapCount 
+{
+  public static void main (String []args)
+  {
+    char ch;
+    Scanner sc=new Scanner(System.in);
+    HashMap<Integer,String>hashmap=new HashMap<Integer,String>();
+    do
+    {
+      System.out.println("Enter value:");
+      int key=sc.nextInt();
+      System.out.println("Enter key:");
+      String value=sc.next();
+      hashmap.put(key,value);
+      System.out.println("Enter another student (y/n)? ");
+      ch=sc.next().charAt(0);
+    }
+      while(ch=='y');
+      for(Map.Entry m:hashmap.entrySet())
+        {
+          System.out.println(m.getValue());
+        }
+    System.out.println("The size of the map is " + hashmap.size());
+  }
+}
